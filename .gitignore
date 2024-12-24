@@ -1,5 +1,4 @@
 node_modules
 project.txt
-prisma
 .env
 docker-compose.yml

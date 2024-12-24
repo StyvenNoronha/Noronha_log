@@ -27,7 +27,7 @@ export class UsersController{
         //para nao deixar a senha aparecer
         const {password:_, ...userWithPassword} = user
 
-        
-        return response.json( userWithPassword)
+
+        return response.status(201).json( userWithPassword)
     }
 }

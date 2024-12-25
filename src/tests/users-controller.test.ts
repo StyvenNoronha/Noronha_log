@@ -8,7 +8,7 @@ describe("UsersController",()=>{
             where: {id:user_id}
         })
     })
-    it("should create a new user successfully",async ()=>{
+    it("should create a new uer successfully",async ()=>{
         const response = await request(app).post("/users").send({
             name:"Test User",
             email:"Test@example.com",
@@ -32,4 +32,17 @@ describe("UsersController",()=>{
         expect(response.status).toBe(400)
         expect(response.body.message).toBe("Um usuário com o mesmo email já existe")
     })
+/*
+    it("should throe a validation error if email is invalid",async () => {
+        const response = await request(app).post("/users").send({
+            name:"Test User",
+            email: "invalid-email",
+            password:"123456seven"
+        })
+
+        expect(response.status).toBe(400)
+        expect(response.body.message).toBe("Um usuário com o mesmo email já existe")
+    })
+
+    */
 })

@@ -54,6 +54,10 @@ export class DeliveriesLogsController{
             }
         })
 
+        if(delivery?.status === "delivered"){
+            throw new AppError("Seu pedido já foi entregue")
+        }
+
         if(request.user?.role === "customer" && request.user.id !== delivery?.userId){
             throw new AppError("o usuário só pode visualizar suas entregas",401)
         }
